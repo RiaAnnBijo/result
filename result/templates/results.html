@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ECE0CF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .no-data {
+            color: #888;
+            font-style: italic;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Details</h1>
+        {% if book_data %}
+            <p><strong>Book:</strong> {{ book_data.Book }}</p>
+            <p><strong>Author:</strong> {{ book_data.Author }}</p>
+            <p><strong>Language:</strong> {{ book_data.Language }}</p>
+            <p><strong>Published on:</strong> {{ book_data.Published_on }}</p>
+            <p><strong>Sales in millions:</strong> {{ book_data.Sales_in_millions }}</p>
+            <p><strong>Genre:</strong> {{ book_data.Genre }}</p>
+        {% else %}
+            <p class="no-data">No book data available.</p>
+        {% endif %}
+        <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
